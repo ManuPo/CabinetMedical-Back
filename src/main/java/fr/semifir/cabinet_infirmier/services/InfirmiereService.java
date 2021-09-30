@@ -1,2 +1,4 @@
-package fr.semifir.cabinet_infirmier.services;public interface InfirmiereService {
+package fr.semifir.cabinet_infirmier.services;
+
+public interface InfirmiereService {
 }

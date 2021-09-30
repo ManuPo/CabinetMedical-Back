@@ -4,7 +4,7 @@ package fr.semifir.cabinet_infirmier.models;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Data
 @Entity
@@ -21,12 +21,20 @@ public class Patient {
     @Column(name= "prenom")
     private String prenom;
 
-    @Column(name= "dateDeNaissance")
-    private LocalDateTime dateDeNaissance;
+    @Column(name= "date_de_naissance")
+    private LocalDate dateDeNaissance;
 
     @Column(name= "sexe")
-    private Boolean sexe;
+    private String sexe;
 
-    @Column(name= "numeroSecuriteSocial")
-    private Long numeroSecuriteSocial;
+    @Column(name= "numero_securite_sociale")
+    private String numeroSecuriteSociale;
+
+    @ManyToOne
+    @JoinColumn(name= "adresse_id", referencedColumnName = "id")
+    private Adresse adresse;
+
+    @ManyToOne
+    @JoinColumn(name= "infirmiere_id", referencedColumnName = "id")
+    private Infirmiere infirmiere;
 }

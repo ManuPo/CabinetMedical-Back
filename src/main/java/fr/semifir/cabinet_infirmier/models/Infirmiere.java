@@ -24,8 +24,14 @@ public class Infirmiere {
     private String prenom;
 
     @Column(name= "telPro")
-    private Integer telPro;
+    private String telPro;
 
     @Column(name= "telPerso")
-    private Integer telPerso;
+    private String telPerso;
+
+    @ManyToOne
+    @JoinColumn(name= "adresse_id", referencedColumnName = "id")
+    private Adresse adresse;
+
+
 }

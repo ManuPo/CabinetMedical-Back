@@ -21,5 +21,13 @@ public class Deplacement {
     @Column(name= "cout")
     private Double cout;
 
+    @ManyToOne
+    @JoinColumn(name="patient_id", referencedColumnName = "id")
+    private Patient patient;
+
+    @ManyToOne
+    @JoinColumn(name="infirmiere_id", referencedColumnName = "id")
+    private Infirmiere infirmiere;
+
 
 }
