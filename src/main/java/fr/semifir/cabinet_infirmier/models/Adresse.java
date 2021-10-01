@@ -20,7 +20,7 @@ public class Adresse {
     private String rue;
 
     @Column(name= "cp")
-    private Integer cp;
+    private String cp;
 
     @Column(name= "ville")
     private String ville;

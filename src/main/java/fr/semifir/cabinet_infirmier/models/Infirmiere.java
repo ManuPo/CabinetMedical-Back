@@ -4,11 +4,12 @@ package fr.semifir.cabinet_infirmier.models;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
 @Table(name= "infirmiere")
-public class Infirmiere {
+public class Infirmiere{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,8 +25,15 @@ public class Infirmiere {
     private String prenom;
 
     @Column(name= "telPro")
-    private Integer telPro;
+    private String telPro;
 
     @Column(name= "telPerso")
-    private Integer telPerso;
+    private String telPerso;
+
+    @ManyToOne
+    @JoinColumn(name= "adresse_id", referencedColumnName = "id")
+    private Adresse adresse;
+
+    @OneToMany(mappedBy = "infirmiere")
+    private List<Patient> patients;
 }
